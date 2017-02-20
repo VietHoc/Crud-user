@@ -1,0 +1,18 @@
+<div class="container">
+	<h3>Edit a specific user</h3>
+	<form action="/users/<%= @user.id %>" method="post" >
+		<input type="hidden" name="_method" value="put">
+		<h3>Name*</h3>
+		<input type="text" name="user[name]" value="<%= @user.name %>">
+		<h3>Email*</h3>
+		<input type="text" name="user[email]"value="<%= @user.email %>">
+		<h3>Password*</h3>
+		<input type="password" name="user[password]" value="<%= @user.password %>">
+		<h3>Avatar</h3>
+		<input id="imageUpload" type="file" name="file">
+		<h3>About me</h3>
+		<textarea name="user[about]" rows="10" cols="50" > <%= @user.about %> </textarea>
+		<br>
+		<input type="submit" name="submit">
+	</form>
+</div>

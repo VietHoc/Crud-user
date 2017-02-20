@@ -1,0 +1,28 @@
+<div class="container">
+	<h2>Show a single users</h2>
+
+	<a href="/users">
+	All The User
+	</a>
+
+	<h3>
+		Name:<%= @user.name %>
+	</h3>
+	<h3>
+		Email:<%= @user.email %>
+	</h3>
+	<h3>
+		Avatar:<%= @user.avatar %>
+	</h3>
+	<h3>
+		About:<%= @user.about %>
+	</h3>
+
+	<form action="/users/<%= @user.id %>/edit" method="get">
+		<input type="submit" value="Edit">
+	</form>
+
+	<form action="/users/<%= @user.id %>" method="post">
+		<input type="submit" value="Eat/Delete">
+	</form>
+</div>

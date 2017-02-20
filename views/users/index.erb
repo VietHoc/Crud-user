@@ -1,0 +1,37 @@
+<div class="container">
+	<h3>Display all the Users</h3>
+
+	<a href="/users/new">New user</a>
+
+	<form action="search" method="post">
+		<input type="text" name="search" style="width: 50%; margin-bottom: 30px">
+		<input type="submit" value="Search">
+	</form>
+
+	<table style="width: 90%">
+		<tr>
+			<th>Avatar</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>About</th>
+		</tr>
+		<% if @users != nil %>
+			<% @users.each do |u| %>
+					<tr id="item<%= u.id %>">
+						<th><a href="users/<%= u.id %>"><img src="./images/<%= u.avatar %>"></a></th>
+						<th><%= u.name %></th>
+						<th><%= u.email %></th>
+						<th><%= u.about %></th>
+						<th>
+							<form action="users/<%= u.id %>/edit" method="get">
+								<input type="submit" value="Update">
+							</form>
+						</th>
+						<th>
+						<button class="deleteButton" value="<%= u.id %>">Delete</button>
+						</th>
+					</tr>
+			<% end %>
+		<% end %>
+	</table>
+</div>
